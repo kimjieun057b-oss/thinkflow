@@ -1,6 +1,6 @@
 # ThinkFlow AI — 개발 가이드
 
-이 문서는 `prd.md`(상위 디렉터리)의 요구사항을 기반으로, 이 코드베이스에서 작업할 때 지켜야 할 규칙을 정리한 것이다. 상세 규칙은 [rules/](rules/) 디렉터리를 참고한다.
+이 문서는 `prd.md`(상위 디렉터리)의 요구사항을 기반으로, 이 코드베이스에서 작업할 때 지켜야 할 규칙을 정리한 것이다. 상세 규칙은 [.claude/rules/](.claude/rules/) 디렉터리를 참고한다 (추후 하네스 구축 시 이 디렉터리를 기준으로 자동 로드/검증한다).
 
 ## 제품 한 줄 정의
 
@@ -53,13 +53,13 @@ docs/{PRD.md, DATABASE.md, API.md}
 
 전체 규칙과 근거는 아래 rules 문서를 따른다:
 
-- [rules/product-principles.md](rules/product-principles.md) — AI·사용자 역할, 데이터 분리, 출처 기반 분석
-- [rules/ai-integration.md](rules/ai-integration.md) — Cloudflare Workers AI 호출, 응답 검증, 컨텍스트 구성 규칙
-- [rules/data-and-transactions.md](rules/data-and-transactions.md) — DB/노드 제안 상태 흐름, 트랜잭션, 멱등성
-- [rules/file-import-security.md](rules/file-import-security.md) — 파일 업로드·분석·보안 규칙
-- [rules/must-follow-checklist.md](rules/must-follow-checklist.md) — PRD 24장 원문 체크리스트 (위반 금지 20개 항목)
+- [.claude/rules/product-principles.md](.claude/rules/product-principles.md) — AI·사용자 역할, 데이터 분리, 출처 기반 분석
+- [.claude/rules/ai-integration.md](.claude/rules/ai-integration.md) — Cloudflare Workers AI 호출, 응답 검증, 컨텍스트 구성 규칙
+- [.claude/rules/data-and-transactions.md](.claude/rules/data-and-transactions.md) — DB/노드 제안 상태 흐름, 트랜잭션, 멱등성
+- [.claude/rules/file-import-security.md](.claude/rules/file-import-security.md) — 파일 업로드·분석·보안 규칙
+- [.claude/rules/must-follow-checklist.md](.claude/rules/must-follow-checklist.md) — PRD 24장 원문 체크리스트 (위반 금지 20개 항목)
 
 ## 작업 시 참고
 
 - MVP 범위는 PRD 18장(P0/P1)을 따른다. P1 항목(YAML/DOCX 지원, 코드 분석, 고급 ERD, 실시간 협업 등)은 임의로 먼저 구현하지 않는다.
-- 새 기능을 추가하기 전에 `rules/` 문서 중 관련 항목을 먼저 확인한다.
+- 새 기능을 추가하기 전에 `.claude/rules/` 문서 중 관련 항목을 먼저 확인한다.
