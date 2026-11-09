@@ -82,8 +82,15 @@ export function ProjectSetupForm() {
       return;
     }
 
+    const body = await res.json();
+    const project = body.project as { id: string };
+
     toast.success("프로젝트를 생성했습니다.");
-    router.push("/dashboard");
+    if (startType === "import") {
+      router.push(`/projects/${project.id}/import`);
+    } else {
+      router.push("/dashboard");
+    }
     router.refresh();
   }
 

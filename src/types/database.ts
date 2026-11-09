@@ -108,3 +108,81 @@ export type NodeConnectionInsert = Pick<
   Partial<Pick<NodeConnectionRow, "edge_type">>;
 
 export type NodeConnectionUpdate = Partial<Pick<NodeConnectionRow, "edge_type">>;
+
+// ============================================================
+// design_files / file_extractions / design_analysis_runs (PRD 8장, 13.3-13.5)
+// ============================================================
+export type DesignFileStatus =
+  | "uploaded"
+  | "extracting"
+  | "extracted"
+  | "analyzing"
+  | "completed"
+  | "failed";
+
+export interface DesignFileRow {
+  id: string;
+  project_id: string;
+  user_id: string;
+  file_name: string;
+  file_type: string;
+  storage_path: string;
+  file_size: number;
+  checksum: string | null;
+  status: DesignFileStatus;
+  created_at: string;
+}
+
+export type ParserType = "markdown" | "sql" | "json" | "pdf";
+export type FileExtractionStatus = "extracting" | "extracted" | "failed";
+
+export interface FileExtractionRow {
+  id: string;
+  file_id: string;
+  extracted_text: string | null;
+  structured_data: Record<string, unknown> | null;
+  parser_type: ParserType | null;
+  status: FileExtractionStatus;
+  error_message: string | null;
+  created_at: string;
+}
+
+export type AnalysisRunStatus = "analyzing" | "completed" | "failed";
+
+// 8.4 분석 결과 구조 — systemComponents/connections는 사용자 검토 대상이며
+// 확정 설계(design_nodes/node_connections)에는 사용자 승인 후에만 반영한다 (Sprint 4).
+export interface AnalysisSystemComponent {
+  id: string;
+  title: string;
+  type: NodeType;
+  description: string;
+  sourceFileIds: string[];
+}
+
+export interface AnalysisConnection {
+  sourceId: string;
+  targetId: string;
+  edgeType: EdgeType;
+  confidence: number;
+}
+
+export interface ImportedDesignAnalysis {
+  projectId: string;
+  analysisRunId: string;
+  summary: string;
+  systemComponents: AnalysisSystemComponent[];
+  connections: AnalysisConnection[];
+  unresolvedItems: string[];
+  findingIds: string[];
+}
+
+export interface DesignAnalysisRunRow {
+  id: string;
+  project_id: string;
+  status: AnalysisRunStatus;
+  summary: string | null;
+  result: ImportedDesignAnalysis | null;
+  source_file_ids: string[];
+  error_message: string | null;
+  created_at: string;
+}
