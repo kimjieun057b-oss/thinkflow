@@ -8,19 +8,19 @@ ThinkFlow AI는 사용자가 **직접 판단하고 결정**하도록 돕는 AI �
 
 ## 기술 스택
 
-| 영역 | 기술 |
-| --- | --- |
-| Framework | Next.js App Router |
-| Language | TypeScript |
-| Styling | Tailwind CSS |
-| UI | shadcn/ui |
-| Diagram | React Flow (`@xyflow/react`) |
-| Database | Supabase PostgreSQL |
-| Auth / 권한 | Supabase Auth / RLS |
-| File Storage | Supabase Storage |
-| AI | Cloudflare Workers AI |
-| Validation | Zod |
-| Diagram Export | Mermaid |
+| 영역           | 기술                         |
+| -------------- | ---------------------------- |
+| Framework      | Next.js App Router           |
+| Language       | TypeScript                   |
+| Styling        | Tailwind CSS                 |
+| UI             | shadcn/ui                    |
+| Diagram        | React Flow (`@xyflow/react`) |
+| Database       | Supabase PostgreSQL          |
+| Auth / 권한    | Supabase Auth / RLS          |
+| File Storage   | Supabase Storage             |
+| AI             | Cloudflare Workers AI        |
+| Validation     | Zod                          |
+| Diagram Export | Mermaid                      |
 
 ## 디렉터리 구조
 
@@ -58,6 +58,16 @@ docs/{PRD.md, DATABASE.md, API.md}
 - [.claude/rules/data-and-transactions.md](.claude/rules/data-and-transactions.md) — DB/노드 제안 상태 흐름, 트랜잭션, 멱등성
 - [.claude/rules/file-import-security.md](.claude/rules/file-import-security.md) — 파일 업로드·분석·보안 규칙
 - [.claude/rules/must-follow-checklist.md](.claude/rules/must-follow-checklist.md) — PRD 24장 원문 체크리스트 (위반 금지 20개 항목)
+
+## Design Modification Rules
+
+- 요청된 범위 외의 디자인은 임의로 변경하지 않는다.
+- 기존 디자인 시스템과 컴포넌트를 우선 재사용한다.
+- 디자인 변경 시 기존 페이지와의 일관성을 유지한다.
+- 기능 구현을 이유로 UI 구조를 불필요하게 변경하지 않는다.
+- 새로운 디자인 패턴이 필요한 경우 기존 패턴과의 차이를 검토한다.
+- 기존 UI를 개선할 때는 개선 목적과 사용자 경험을 고려한다.
+- 구현 완료 후 PC와 모바일 화면을 모두 검토한다.
 
 ## 작업 시 참고
 
